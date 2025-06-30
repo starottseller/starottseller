@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star OTT Seller - Elegant Dark</title>
+  <title>Star OTT Seller </title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
@@ -146,6 +146,16 @@
       transform: translateY(-50%);
       color: #e5e7eb;
       pointer-events: none;
+    }
+    .developer {
+      font-weight: bold;
+      color: #f59e0b;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .developer:hover {
+      color: #ffd700;
     }
   </style>
 </head>
@@ -320,6 +330,7 @@
   <div id="overlay" class="overlay" onclick="closeActiveModal(event)"></div>
   <footer class="bg-gray-900 py-6 text-center">
     <p class="text-yellow-300">© 2025 Star OTT Seller. All rights reserved.</p>
+    <p class="mt-2 text-yellow-300">Developed by <span class="developer" onclick="window.open('https://wa.me/919499623940', '_blank')">Saood Khan</span></p>
   </footer>
   <script>
     let cart = [];
