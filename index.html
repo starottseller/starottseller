@@ -387,10 +387,10 @@
 
       itemNameElement.textContent = itemName;
       optionsDiv.innerHTML = `
-        <button class="duration-btn" onclick="selectDuration(${convertedBasePrice}, 1)">Monthly</button>
-        <button class="duration-btn" onclick="selectDuration(${convertedBasePrice}, 3)">Quarterly</button>
-        <button class="duration-btn" onclick="selectDuration(${convertedBasePrice}, 6)">6 Months</button>
-        <button class="duration-btn" onclick="selectDuration(${convertedBasePrice}, 12)">Yearly</button>
+        <button class="duration-btn" onclick="selectDuration('${itemName}', ${convertedBasePrice}, 1)">Monthly</button>
+        <button class="duration-btn" onclick="selectDuration('${itemName}', ${convertedBasePrice}, 3)">Quarterly</button>
+        <button class="duration-btn" onclick="selectDuration('${itemName}', ${convertedBasePrice}, 6)">6 Months</button>
+        <button class="duration-btn" onclick="selectDuration('${itemName}', ${convertedBasePrice}, 12)">Yearly</button>
       `;
       totalAmount.style.display = 'none';
       addToCartBtn.style.display = 'none';
@@ -399,15 +399,14 @@
       document.body.style.overflow = 'hidden'; // Prevent background scroll
     }
 
-    function selectDuration(basePrice, months) {
-      const selectedDuration = months;
+    function selectDuration(itemName, basePrice, months) {
       const price = basePrice * months * (months === 12 ? 0.9 : 1); // 10% discount for yearly
       const totalAmount = document.getElementById('totalAmount');
       const addToCartBtn = document.getElementById('addToCartBtn');
       totalAmount.textContent = `Total: ${countryRates[selectedCountry].currency}${price.toFixed(2)}`;
       totalAmount.style.display = 'block';
       addToCartBtn.style.display = 'block';
-      addToCartBtn.onclick = () => addToCartWithDuration(itemName, price, selectedDuration);
+      addToCartBtn.onclick = () => addToCartWithDuration(itemName, price, months);
     }
 
     function addToCartWithDuration(itemName, price, duration) {
